@@ -1,1 +1,2 @@
 # Integrated Face Recognition and Object Detection Model
+#Face online recognition system based on convolutional neural network, this system studies face detection and recognition technology based on neural network model, the system will be composed of the following parts: making face data set, CNN neural network model training, face detection, face recognition. Through experiments, it is confirmed that the system can detect and recognize my face quickly and accurately.
