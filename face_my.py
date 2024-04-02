@@ -12,7 +12,7 @@ Face size: 64*64
 import cv2
 import dlib
 import os
-import random
+import secrets
 
 faces_my_path = './faces_my'
 size = 64
@@ -63,7 +63,7 @@ while True:
 
             face = img[x1:y1,x2:y2]
             """Adjust the contrast and brightness of the picture. The contrast and brightness values are random numbers, which can increase the diversity of the sample"""
-            face = img_change(face, random.uniform(0.5, 1.5), random.randint(-50, 50))
+            face = img_change(face, secrets.SystemRandom().uniform(0.5, 1.5), secrets.SystemRandom().randint(-50, 50))
             face = cv2.resize(face, (size,size))
             cv2.imshow('image', face)
             cv2.imwrite(faces_my_path+'/'+str(num)+'.jpg', face)
