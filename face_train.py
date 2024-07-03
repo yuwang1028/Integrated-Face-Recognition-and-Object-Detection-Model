@@ -15,10 +15,10 @@ Optimizer: Adam
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 import numpy as np
-import random
 import cv2
 import sys
 import os
+import secrets
 
 """define parameters"""
 faces_my_path = './faces_my'
@@ -150,7 +150,7 @@ if __name__ == '__main__':
     imgs = np.array(imgs)                   # Converts image data and labels into arrays
     labs = np.array([[0, 1] if lab == faces_my_path else [1, 0] for lab in labs])  # [0,1]is my face，[1,0]is other's face
     """2、Randomly divide test set and training set"""
-    train_x_1, test_x_1, train_y, test_y = train_test_split(imgs, labs, test_size=0.05, random_state=random.randint(0, 100))
+    train_x_1, test_x_1, train_y, test_y = train_test_split(imgs, labs, test_size=0.05, random_state=secrets.SystemRandom().randint(0, 100))
     train_x_2 = train_x_1.reshape(train_x_1.shape[0], size, size, 3)        #
     test_x_2 = test_x_1.reshape(test_x_1.shape[0], size, size, 3)
     """3、normalization"""
